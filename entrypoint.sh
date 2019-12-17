@@ -11,7 +11,7 @@ git clone --depth=1 --single-branch --branch master \
 
 hugo ${INPUT_HUGO_ARGS}
 
-cp -R \
+cp -av \
   ${GITHUB_WORKSPACE}/${INPUT_BUILD_DIR}/* \
   ${DEST_DIR}
 
@@ -19,6 +19,5 @@ cd ${DEST_DIR}
 git config user.name "${GITHUB_ACTOR}"
 git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 git add --all
-git commit -m "Automated deployment: $(date -R) ${GITHUB_SHA}" || \
-  echo 'No changes, skipping publish' && exit 0
+git commit -a -m "Automated deployment: $(date -R) ${GITHUB_SHA}" 
 git push
