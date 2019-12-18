@@ -9,6 +9,8 @@ git clone --depth=1 --single-branch --branch master \
   ${DEST_URL} \
   ${DEST_DIR}
 
+hugo version 
+
 hugo ${INPUT_HUGO_ARGS}
 
 cp -av \
